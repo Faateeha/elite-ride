@@ -36,10 +36,10 @@ const serviceDetails = {
       "Confidential and discreet",
       "24/7 surveillance and support",
     ],
-    img: "/images/3.jpeg",
+    img: "/images/security.jpeg",
   },
-  "intra-state-travel": {
-    title: "Intra-State Travel",
+  "intra-inter-state-travel": {
+    title: "Intra & Inter State Travel",
     desc: "Move freely within your city in absolute comfort. Perfect for executives, personal appointments, and events that require punctuality and style.",
     features: [
       "Luxury vehicles",
@@ -47,19 +47,9 @@ const serviceDetails = {
       "Wi-Fi and refreshments",
       "Professional drivers",
     ],
-    img: "/images/3.jpeg",
+    img: "/images/state.jpeg",
   },
-  "inter-state-travel": {
-    title: "Inter-State Travel",
-    desc: "Travel between states with our long-distance luxury rides, equipped with comfort, privacy, and security features for executives and families alike.",
-    features: [
-      "Air-conditioned luxury cars",
-      "Security escorts (optional)",
-      "Refreshments and entertainment",
-      "Safe and reliable drivers",
-    ],
-    img: "/images/3.jpeg",
-  },
+  
 };
 
 export default function ServiceDetails({ params }: { params: { serviceId: string } }) {

@@ -12,9 +12,9 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "What is Elite Ride?",
+      question: "What is EliteRide?",
       answer:
-        "Elite Ride is a premium transport service offering luxury, safety, and professionalism for airport, interstate, and executive travels.",
+        "EliteRide is a premium transport service offering luxury, safety, and professionalism for airport, interstate, and executive travels.",
     },
     {
       question: "How do I book a ride?",

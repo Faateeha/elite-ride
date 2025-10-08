@@ -17,7 +17,7 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center text-center">
         {/* Background Image */}
         <Image
-          src="/images/1.jpeg" // ✅ Replace with your own image inside /Images/
+          src="/images/home.jpeg" // ✅ Replace with your own image inside /Images/
           alt="Luxury car hero"
           fill
           priority

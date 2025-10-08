@@ -1,27 +1,21 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function BookingSummaryPage() {
-  const searchParams = useSearchParams();
+  
   const router = useRouter();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [bookingData, setBookingData] = useState<any>(null);
   const [totalCost, setTotalCost] = useState<number>(0);
 
   useEffect(() => {
-    const data = searchParams.get("data");
-    if (data) {
-      try {
-        const parsed = JSON.parse(decodeURIComponent(data));
-        setBookingData(parsed);
-      } catch (err) {
-        console.error("Error parsing booking data:", err);
-      }
-    }
-  }, [searchParams]);
-
+    const savedData = localStorage.getItem("bookingData");
+    if (savedData) {
+      setBookingData(JSON.parse(savedData));
+    } 
+  }, []);
   useEffect(() => {
     if (bookingData) {
       let cost = 0;
@@ -41,19 +35,21 @@ export default function BookingSummaryPage() {
     }
   }, [bookingData]);
 
+  const handleConfirmBooking = () => {
+    localStorage.setItem(
+      "confirmedBooking",
+      JSON.stringify({ ...bookingData, totalCost })
+    );
+    router.push("/booking-confirmed");
+  };
+
   if (!bookingData)
     return (
       <div className="flex items-center justify-center min-h-screen">
         <p className="text-gray-500">Loading booking details...</p>
       </div>
     );
-
-  const handleConfirm = () => {
-    const encodedData = encodeURIComponent(
-      JSON.stringify({ ...bookingData, totalCost })
-    );
-    router.push(`/booking-confirmed?data=${encodedData}`);
-  };
+  
 
   return (
     <section className="py-[8rem] px-6 md:px-20 bg-white min-h-screen text-gray-800">
@@ -103,7 +99,7 @@ export default function BookingSummaryPage() {
         </div>
 
         <button
-          onClick={handleConfirm}
+          onClick={handleConfirmBooking}
           className="w-full mt-8 bg-red-800 hover:bg-red-700 text-white py-3 rounded-lg font-medium transition"
         >
           Confirm Booking

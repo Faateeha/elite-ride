@@ -1,25 +1,19 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import Link from "next/link"; // ✅ Import Link
 import { useEffect, useState } from "react";
 
 export default function BookingConfirmedPage() {
-  const searchParams = useSearchParams();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [booking, setBooking] = useState<any>(null);
 
   useEffect(() => {
-    const data = searchParams.get("data");
-    if (data) {
-      try {
-        const parsed = JSON.parse(decodeURIComponent(data));
-        setBooking(parsed);
-      } catch (err) {
-        console.error("Error parsing confirmation data:", err);
-      }
+    // ✅ Read booking data from localStorage
+    const storedBooking = localStorage.getItem("confirmedBooking");
+    if (storedBooking) {
+      setBooking(JSON.parse(storedBooking));
     }
-  }, [searchParams]);
+  }, []);
 
   if (!booking)
     return (

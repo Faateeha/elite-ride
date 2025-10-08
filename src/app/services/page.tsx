@@ -21,20 +21,15 @@ export default function Services() {
       id: "security-services",
       title: "Security Services",
       desc: "Your safety is our priority. We offer armed escorts and trained security drivers, ensuring peace of mind throughout your journey.",
-      img: "/images/3.jpeg",
+      img: "/images/security.jpeg",
     },
     {
-      id: "intra-state-travel",
-      title: "Intra-State Travel",
+      id: "intra-inter-state-travel",
+      title: "Intra & Inter State Travel",
       desc: "Travel in comfort and luxury within your city. Ideal for meetings, events, or personal errands where class and convenience matter.",
-      img: "/images/3.jpeg",
+      img: "/images/state.jpeg",
     },
-    {
-      id: "inter-state-travel",
-      title: "Inter-State Travel",
-      desc: "Go beyond city borders with our premium interstate travel. Enjoy comfort, privacy, and top-tier vehicles with Wi-Fi and refreshments.",
-      img: "/images/3.jpeg",
-    },
+    
   ];
 
   return (
@@ -42,7 +37,7 @@ export default function Services() {
       <div data-aos="fade-down" className="text-center mb-12">
         <h2 className="text-4xl font-bold text-red-800 mb-4">Our Services</h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          At Elite Ride, we redefine travel with luxury, security, and professionalism.
+          At EliteRide, we redefine travel with luxury, security, and professionalism.
           Explore our range of premium services tailored to your lifestyle.
         </p>
       </div>

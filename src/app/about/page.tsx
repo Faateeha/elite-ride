@@ -16,7 +16,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[60vh]">
         <Image
-          src="/images/2.jpeg" // 🔁 Replace with your actual image path
+          src="/images/about1.jpeg" // 🔁 Replace with your actual image path
           alt="Elite Ride Luxury Travel"
           fill
           className="object-cover"
@@ -27,7 +27,7 @@ export default function AboutPage() {
             data-aos="fade-up"
             className="text-4xl md:text-6xl font-bold text-white text-center"
           >
-            About Elite Ride
+            About EliteRide
           </h1>
         </div>
       </section>

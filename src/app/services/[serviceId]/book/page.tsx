@@ -82,9 +82,10 @@ export default function BookServicePage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // send the form data to the summary page via query (encoded JSON)
-    router.push(`/booking-summary?data=${encodeURIComponent(JSON.stringify(formData))}`);
+    localStorage.setItem("bookingData", JSON.stringify(formData)); // ✅ Save in local storage
+    router.push("/booking-summary");
   };
+  
 
   return (
     <section className="py-[8rem] px-6 md:px-20 bg-white min-h-screen text-gray-800">
@@ -285,7 +286,7 @@ export default function BookServicePage() {
             type="submit"
             className="w-full bg-red-800 hover:bg-red-700 text-white py-3 rounded-lg text-lg font-medium transition"
           >
-            Confirm Booking
+            Review Booking
           </button>
         </form>
       </div>
