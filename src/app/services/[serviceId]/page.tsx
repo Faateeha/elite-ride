@@ -2,6 +2,7 @@
 
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 const serviceDetails = {
   "airport-transportation": {
@@ -72,7 +73,10 @@ export default function ServiceDetails({ params }: { params: { serviceId: string
     <section className="py-[10rem] px-6 md:px-16 bg-white text-gray-800">
       <div className="grid md:grid-cols-2 gap-10 items-center">
         {/* Image */}
-        <div data-aos="fade-right" className="relative w-full h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-md">
+        <div
+          data-aos="fade-right"
+          className="relative w-full h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-md"
+        >
           <Image src={service.img} alt={service.title} fill className="object-cover" />
         </div>
 
@@ -81,7 +85,7 @@ export default function ServiceDetails({ params }: { params: { serviceId: string
           <h1 className="text-4xl font-bold text-red-800 mb-4">{service.title}</h1>
           <p className="text-gray-600 mb-6">{service.desc}</p>
 
-          <ul className="space-y-3">
+          <ul className="space-y-3 mb-8">
             {service.features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">
                 <span className="text-red-800 font-bold">•</span>
@@ -89,6 +93,14 @@ export default function ServiceDetails({ params }: { params: { serviceId: string
               </li>
             ))}
           </ul>
+
+          {/* Book Now Button */}
+          <Link
+            href={`/services/${params.serviceId}/book`}
+            className="bg-red-800 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition inline-block"
+          >
+            Book Now
+          </Link>
         </div>
       </div>
     </section>

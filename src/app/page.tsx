@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -44,11 +45,14 @@ export default function Home() {
             security, privacy, and executive-class comfort.
           </p>
           <div data-aos="fade-up" data-aos-delay="400">
-            <button className="bg-red-800 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition">
-              Book a Ride
-            </button>
-          </div>
-        </div>
+  <Link
+    href="/services"
+    className="bg-red-800 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition inline-block"
+  >
+    Book a Ride
+  </Link>
+</div>
+</div>
       </section>
 
       {/* Call To Action Section */}
@@ -68,12 +72,12 @@ export default function Home() {
           experience the perfect blend of safety, luxury, and comfort.
         </p>
         <button
-          className="bg-white text-red-800 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          Get Started
-        </button>
+  className="bg-white text-red-800 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
+  data-aos="fade-up"
+  data-aos-delay="400"
+>
+  <Link href="/services">Get Started</Link>
+</button>
       </section>
     </main>
   );
