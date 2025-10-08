@@ -33,7 +33,7 @@ export default function Home() {
             className="text-4xl md:text-6xl font-bold text-white mb-4"
             data-aos="fade-up"
           >
-            Elite Ride 
+            EliteRide 
             <p className="text-2xl md:text-4xl">Luxury Security & Comfort</p>
           </h1>
           <p
@@ -41,7 +41,7 @@ export default function Home() {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Elite Ride delivers premium airport and interstate travel with
+            EliteRide delivers premium airport and interstate travel with
             security, privacy, and executive-class comfort.
           </p>
           <div data-aos="fade-up" data-aos-delay="400">
@@ -68,7 +68,7 @@ export default function Home() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          Book your next airport or interstate trip with Elite Ride and
+          Book your next airport or interstate trip with EliteRide and
           experience the perfect blend of safety, luxury, and comfort.
         </p>
         <button

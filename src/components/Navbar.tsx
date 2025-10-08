@@ -26,8 +26,8 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md  z-50">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full backdrop-blur-xs  z-50">
+      <div className="container mx-auto px-4  flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
           <Image
@@ -51,22 +51,22 @@ const Navbar: React.FC = () => {
         {/* Desktop navigation */}
         <ul className="hidden md:flex space-x-6 items-center">
           <li>
-            <Link href="/" className="hover:text-red-800 hover:underline">
+            <Link href="/" className="text-white hover:text-red-800 hover:underline">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-red-800 hover:underline">
+            <Link href="/about" className="text-white hover:text-red-800 hover:underline">
               About
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-red-800 hover:underline">
+            <Link href="/contact" className="text-white hover:text-red-800 hover:underline">
               Contact Us
             </Link>
           </li>
           <li>
-            <Link href="/services" className="hover:text-red-800 hover:underline">
+            <Link href="/services" className="text-white hover:text-red-800 hover:underline">
               Services
             </Link>
           </li>
@@ -113,8 +113,8 @@ const Navbar: React.FC = () => {
 
       {/* Mobile dropdown menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-md">
-          <ul className="flex flex-col items-center py-4 space-y-4">
+        <div className="md:hidden bg-transparent shadow-md">
+          <ul className="flex flex-col items-center py-4 space-y-4 text-white">
             <li>
               <Link href="/" onClick={() => setIsOpen(false)}>
                 Home
@@ -133,7 +133,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/services"
-                className="border-2 border-black px-3 py-1 hover:bg-black hover:text-white transition"
+                className=""
                 onClick={() => setIsOpen(false)}
               >
                 services

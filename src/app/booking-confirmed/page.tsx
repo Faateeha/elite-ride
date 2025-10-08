@@ -1,0 +1,65 @@
+"use client";
+
+import { useSearchParams } from "next/navigation";
+import Link from "next/link"; // ✅ Import Link
+import { useEffect, useState } from "react";
+
+export default function BookingConfirmedPage() {
+  const searchParams = useSearchParams();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [booking, setBooking] = useState<any>(null);
+
+  useEffect(() => {
+    const data = searchParams.get("data");
+    if (data) {
+      try {
+        const parsed = JSON.parse(decodeURIComponent(data));
+        setBooking(parsed);
+      } catch (err) {
+        console.error("Error parsing confirmation data:", err);
+      }
+    }
+  }, [searchParams]);
+
+  if (!booking)
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-gray-500">Loading confirmation...</p>
+      </div>
+    );
+
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-center px-6">
+      <div className="max-w-md bg-white p-8 rounded-2xl shadow-md">
+        <h1 className="text-3xl font-bold text-red-700 mb-4">
+          🎉 Booking Confirmed!
+        </h1>
+        <p className="text-gray-700 mb-6">
+          Thank you for choosing our service, <strong>{booking.name}</strong>!<br />
+          Your booking for <strong>{booking.serviceType}</strong> has been successfully confirmed.
+        </p>
+
+        <div className="bg-red-50 border border-green-200 text-left rounded-xl p-4 mb-6">
+          <h2 className="text-lg font-semibold text-red-700 mb-2">Booking Summary</h2>
+          <p><strong>Date:</strong> {booking.date}</p>
+          <p><strong>Time:</strong> {booking.time}</p>
+          <p><strong>Pickup:</strong> {booking.pickup}</p>
+          <p><strong>Destination:</strong> {booking.destination}</p>
+          <p><strong>Vehicle:</strong> {booking.vehicleModel}</p>
+          <p><strong>Total Paid:</strong> ₦{booking.totalCost?.toLocaleString()}</p>
+        </div>
+
+        {/* ✅ Replaced <a> with Link */}
+        <Link
+          href="/"
+          className="bg-red-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition inline-block"
+        >
+          Back to Home
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+
+  
