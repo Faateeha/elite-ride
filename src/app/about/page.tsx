@@ -60,8 +60,7 @@ export default function AboutPage() {
           >
             <h3 className="text-2xl font-semibold text-red-800 mb-4">Our Vision</h3>
             <p className="text-gray-700 leading-relaxed">
-              To become Africa’s most trusted provider of premium, secure, and
-              comfortable executive travel experiences.
+              To become Lagos leading luxury ride service, known for impeccable service quality, well-maintained high-end vehicles, secure travel for clients, and strong brand reputation among high net worth individuals, corporate executives, and travelers.
             </p>
           </div>
 
@@ -73,8 +72,7 @@ export default function AboutPage() {
           >
             <h3 className="text-2xl font-semibold text-red-800 mb-4">Our Mission</h3>
             <p className="text-gray-700 leading-relaxed">
-              To deliver exceptional, safe, and luxurious transportation through
-              innovation, professionalism, and attention to client needs.
+              To provide discerning clients in Lagos and the surronding region with transportation services that epitomize Luxury, Security, and comfort. EliteRide aims to be the benchmark for premium car hire, specializing in airport transfers, interstate travel, executive and VIP rides, offering safety, class, and convenience in every journey.
             </p>
           </div>
 
