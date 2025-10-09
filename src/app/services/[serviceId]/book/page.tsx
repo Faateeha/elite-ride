@@ -88,7 +88,7 @@ export default function BookServicePage() {
   
 
   return (
-    <section className="py-[8rem] px-6 md:px-20 bg-white min-h-screen text-gray-800">
+    <section className="py-[2rem] px-6 md:px-20 bg-white min-h-screen text-gray-800">
       <div
         data-aos="fade-up"
         className="max-w-3xl mx-auto bg-gray-50 p-8 rounded-2xl shadow-lg"
@@ -233,41 +233,40 @@ export default function BookServicePage() {
               <option value="">Select driver type</option>
               <option value="Regular Chauffeur">Regular Chauffeur</option>
               <option value="Police-Trained Driver">Police-Trained Driver</option>
-              <option value="Armed Security">Armed Security</option>
             </select>
           </div>
 
-          {/* Security Options (Conditional) */}
-          {formData.driverOption === "Armed Security" && (
-            <div className="space-y-4 border border-gray-200 rounded-lg p-4 bg-white">
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  Number of Armed Security
-                </label>
-                <input
-                  type="number"
-                  name="armedSecurityCount"
-                  value={formData.armedSecurityCount}
-                  onChange={handleChange}
-                  min={1}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-red-800 outline-none"
-                />
-              </div>
+          {/* Security Option */}
+<div >
+  <h3 className="text-md font-medium mb-1">Security Option</h3>
 
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="escortVehicle"
-                  checked={formData.escortVehicle}
-                  onChange={handleChange}
-                  className="w-4 h-4 text-red-800 focus:ring-red-800"
-                />
-                <label className="text-sm font-medium">
-                  Add Escort Vehicle
-                </label>
-              </div>
-            </div>
-          )}
+  <div className="border border-gray-200 rounded-lg p-4 bg-white space-y-4 mb-2">
+    <label className="block text-sm font-medium mb-1">
+      Number of Armed Security
+    </label>
+    <input
+      type="number"
+      name="armedSecurityCount"
+      value={formData.armedSecurityCount}
+      onChange={handleChange}
+      min={0}
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-red-800 outline-none"
+      placeholder="Enter number of security personnel"
+    />
+  </div>
+  <div className="flex items-center gap-2">
+    <input
+      type="checkbox"
+      name="escortVehicle"
+      checked={formData.escortVehicle}
+      onChange={handleChange}
+      className="w-4 h-4 text-red-800 focus:ring-red-800"
+    />
+    <label className="text-sm font-medium">Include Escort Vehicle</label>
+  </div>
+</div>
+
+          
 
           {/* Notes */}
           <div>

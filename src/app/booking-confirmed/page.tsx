@@ -18,7 +18,7 @@ export default function BookingConfirmedPage() {
   if (!booking)
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p className="text-gray-500">Loading confirmation...</p>
+        <p className="text-gray-500">Loading confirmation details...</p>
       </div>
     );
 
@@ -30,7 +30,8 @@ export default function BookingConfirmedPage() {
         </h1>
         <p className="text-gray-700 mb-6">
           Thank you for choosing our service, <strong>{booking.name}</strong>!<br />
-          Your booking for <strong>{booking.serviceType}</strong> has been successfully confirmed.
+          Your booking for <strong>{booking.serviceType}</strong> has been successfully confirmed. A confirmation email
+          has been sent to <strong>{booking.email}</strong>.
         </p>
 
         <div className="bg-red-50 border border-green-200 text-left rounded-xl p-4 mb-6">
@@ -40,10 +41,30 @@ export default function BookingConfirmedPage() {
           <p><strong>Pickup:</strong> {booking.pickup}</p>
           <p><strong>Destination:</strong> {booking.destination}</p>
           <p><strong>Vehicle:</strong> {booking.vehicleModel}</p>
-          <p><strong>Total Paid:</strong> ₦{booking.totalCost?.toLocaleString()}</p>
+          <p><strong>Total Cost:</strong> ₦{booking.totalCost?.toLocaleString()}</p>
+          <p><strong>Driver Option:</strong> {booking.driverOption}</p>
+          {booking.armedSecurityCount && (
+            <p>
+              <strong>Number of Armed Security:</strong>{" "}
+              {booking.armedSecurityCount}
+            </p>
+          )}
+
+          {booking.escortVehicle !== undefined && (
+            <p>
+              <strong>Escort Vehicle:</strong>{" "}
+              {booking.escortVehicle ? "Yes" : "No"}
+            </p>
+          )}
+
+          {booking.notes && (
+            <p>
+              <strong>Notes:</strong> {booking.notes}
+            </p>
+          )}
         </div>
 
-        {/* ✅ Replaced <a> with Link */}
+        
         <Link
           href="/"
           className="bg-red-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition inline-block"

@@ -27,9 +27,12 @@ export default function BookingSummaryPage() {
       if (bookingData.driverOption === "Police-Trained Driver") cost += 40000;
       if (bookingData.driverOption === "Armed Security") cost += 60000;
 
-      if (bookingData.escortVehicle) cost += 30000;
+      // Armed security extras
       if (bookingData.armedSecurityCount)
         cost += Number(bookingData.armedSecurityCount) * 10000;
+
+      if (bookingData.escortVehicle) cost += 30000;
+    
 
       setTotalCost(cost);
     }
@@ -71,18 +74,22 @@ export default function BookingSummaryPage() {
           <p><strong>Vehicle Model:</strong> {bookingData.vehicleModel}</p>
           <p><strong>Driver Option:</strong> {bookingData.driverOption}</p>
 
-          {bookingData.driverOption === "Armed Security" && (
-            <>
-              <p>
-                <strong>Number of Armed Security:</strong>{" "}
-                {bookingData.armedSecurityCount}
-              </p>
-              <p>
-                <strong>Escort Vehicle:</strong>{" "}
-                {bookingData.escortVehicle ? "Yes" : "No"}
-              </p>
-            </>
-          )}
+         {/* Security Info (Show if entered) */}
+{(bookingData.armedSecurityCount || bookingData.escortVehicle) && (
+  <>
+    <p>
+      <strong>Number of Armed Security:</strong>{" "}
+      {bookingData.armedSecurityCount
+        ? bookingData.armedSecurityCount
+        : "None"}
+    </p>
+    <p>
+      <strong>Escort Vehicle:</strong>{" "}
+      {bookingData.escortVehicle ? "Yes" : "No"}
+    </p>
+  </>
+)}
+
 
           {bookingData.notes && (
             <p>
